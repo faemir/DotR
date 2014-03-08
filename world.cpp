@@ -17,6 +17,15 @@ void World::createWall(int x, int y){
     tiles[x][y].passable = false;
 }
 
+bool World::wallCheck(int x, int y)
+{
+    if (tiles[x][y].passable == false)
+        return (false);
+    else
+        return (true);
+}
+
+
 void World::place(){
      for (int i=0; i<50; i++)
          for (int j=0; j<30; j++){

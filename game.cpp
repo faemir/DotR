@@ -12,17 +12,16 @@ Game::Game()
 }
 
 void Game::update(){
-    //TCOD_key_t key = TCODConsole::waitForKeypress(true);
     TCOD_key_t key;
     TCOD_mouse_t mouse;
     TCOD_event_t ev = TCODSystem::waitForEvent(TCOD_EVENT_ANY,&key,&mouse,true);
-    if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_UP)
+    if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_UP && map->wallCheck(player->posX, player->posY-1))
         player->posY--;
-    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_DOWN )
+    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_DOWN && map->wallCheck(player->posX, player->posY+1))
         player->posY++;
-    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_LEFT )
+    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_LEFT && map->wallCheck(player->posX-1, player->posY))
         player->posX--;
-    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_RIGHT )
+    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_RIGHT && map->wallCheck(player->posX+1, player->posY))
         player->posX++;
 }
 

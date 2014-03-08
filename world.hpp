@@ -18,6 +18,6 @@ public:
     void place();
     void createTiles(int posX, int posY);
     void createWall(int x, int y);
-    //tile *tiles;
+    bool wallCheck(int x, int y);
     std::vector<std::vector<tile> > tiles;
 };
