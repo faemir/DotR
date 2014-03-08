@@ -12,4 +12,6 @@
 *.la
 *.a
 
+DotR.kdev4
 build/
+.kdev4/
