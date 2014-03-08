@@ -7,7 +7,7 @@ Game::Game()
     mapSizeY = 30;    
     TCODConsole::initRoot(mapSizeX, mapSizeY, "DotR - Defence of the Roguelike", false, TCOD_RENDERER_SDL);
     TCODConsole::setWindowTitle("DotR - Defence of the Roguelike");
-    player = new Creature((mapSizeX / 2), (mapSizeY / 2), '@', TCODColor::white);
+    player = new Creature((mapSizeX / 2), (mapSizeY / 2), '@', TCODColor::lighterGrey);
     map = new World(mapSizeX, mapSizeY);
 }
 

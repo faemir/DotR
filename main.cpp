@@ -4,6 +4,8 @@
 Game game;
 
 int main(int argc, char **argv) {
+    game.display();
+    TCODConsole::flush();
     while ( !TCODConsole::isWindowClosed() ) {
         game.update();
         game.display();

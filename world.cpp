@@ -5,6 +5,12 @@ World::World(int width, int height) :
     width(width), height(height){
         createTiles(width, height);
         createWall(5,5);
+        createWall(5,6);
+        createWall(5,7);
+        createWall(5,8);
+        createWall(5,9);
+        createWall(5,10);
+        createWall(5,11);
     }
     
 void World::createTiles(int sizeX, int sizeY){
@@ -19,7 +25,7 @@ void World::createWall(int x, int y){
 
 bool World::wallCheck(int x, int y)
 {
-    if (tiles[x][y].passable == false)
+    if (tiles[y][x].passable == false)
         return (false);
     else
         return (true);
