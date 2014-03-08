@@ -1,0 +1,5 @@
+project(DotR)
+cmake_minimum_required(VERSION 2.6)
+add_executable(DotR game.cpp world.cpp creature.cpp main.cpp)
+target_link_libraries(DotR tcod tcodxx)
+install(TARGETS DotR RUNTIME DESTINATION bin)
