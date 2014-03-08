@@ -1,12 +1,10 @@
 #include <libtcod/libtcod.hpp>
 #include <string>
+#include <vector>
 
 struct tile {
 public:
-    int sizeX;
-    int sizeY;
-    bool passable;
-    std::string type;
+    bool passable = true;
 };
 
 class World {
@@ -20,5 +18,6 @@ public:
     void place();
     void createTiles(int posX, int posY);
     void createWall(int x, int y);
-    tile *tiles;
+    //tile *tiles;
+    std::vector<std::vector<tile> > tiles;
 };
