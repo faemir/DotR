@@ -12,17 +12,18 @@ Game::Game()
 }
 
 void Game::update(){
-    TCOD_key_t key = TCODConsole::waitForKeypress(true);
-    switch(key.vk) {
-        case TCODK_UP : player->posY--;
-            break;
-        case TCODK_DOWN : player->posY++;
-            break;
-        case TCODK_LEFT : player->posX--;
-            break;
-        case TCODK_RIGHT : player->posX++;
-            break;
-    }
+    //TCOD_key_t key = TCODConsole::waitForKeypress(true);
+    TCOD_key_t key;
+    TCOD_mouse_t mouse;
+    TCOD_event_t ev = TCODSystem::waitForEvent(TCOD_EVENT_ANY,&key,&mouse,true);
+    if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_UP)
+        player->posY--;
+    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_DOWN )
+        player->posY++;
+    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_LEFT )
+        player->posX--;
+    else if ( ev == TCOD_EVENT_KEY_PRESS && key.vk == TCODK_RIGHT )
+        player->posX++;
 }
 
 void Game::display(){
