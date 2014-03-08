@@ -3,25 +3,33 @@
 
 World::World(int width, int height) : 
     width(width), height(height){
-        TCODColor ground(31,31,31);
-        TCODColor wall(213,213,213);
-        TCODConsole::root->setDefaultBackground(ground);
-        TCODConsole::root->setDefaultForeground(wall);
+        TCODColor ground = TCODColor::lighterAmber;
+        TCODColor wall = TCODColor::cyan;
+//         TCODConsole::root->setDefaultBackground(ground);
+//         TCODConsole::root->setDefaultForeground(wall);
+        createTiles(width, height);
+        createWall(30,30);
+//         createWall(15,15);
     }
     
-void World::createWall(int posX, int posY)
-{
-    walls = new Wall;
-    walls->posX = posX;
-    walls->posY = posY;
+void World::createTiles(int sizeX, int sizeY){
+    tiles = new tile[sizeX * sizeY];
+    tiles->sizeX = sizeX;
+    tiles->sizeY = sizeY;
+}
+
+void World::createWall(int x, int y){
+//     tiles[x*y].passable = false;
+    tiles[x*y].type = "wall";
 }
 
 void World::place(){
-    //FIXME make this actually work...
-//     for (int i=0; i<=width; i++)
-//         for (int i=0; i<height; i++)
-//             if (unpassable))
-//                 TCODConsole::root->setCharBackground(x,y, wall);
-//             else
-//                 TCODConsole::root->setCharBackground(x,y, ground);
+    //FIXME this is the wrong colour
+     for (int i=0; i<=width; i++)
+         for (int j=0; j<height; j++){
+             if (tiles[i*j].type == "wall")
+                 TCODConsole::root->setCharBackground(i,j, TCODColor::lighterAmber);
+             else
+                 TCODConsole::root->setCharBackground(i,j, TCODColor::cyan);
+         }
 }

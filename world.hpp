@@ -1,8 +1,12 @@
-struct Wall {
-public:
-    int posX;
-    int posY;
+#include <libtcod/libtcod.hpp>
+#include <string>
 
+struct tile {
+public:
+    int sizeX;
+    int sizeY;
+    bool passable;
+    std::string type;
 };
 
 class World {
@@ -10,11 +14,11 @@ public:
     int width;
     int height;
     TCODColor ground;
-    TCODcolor wall;
+    TCODColor wall;
     
     World(int width, int height);
     void place();
-    void createWall(int posX, int posY);
-    Wall *walls;
+    void createTiles(int posX, int posY);
+    void createWall(int x, int y);
+    tile *tiles;
 };
-

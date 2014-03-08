@@ -3,10 +3,12 @@
 
 Game::Game()
 {
-    TCODConsole::initRoot(50, 30, "DotR - Defence of the Roguelike", false, TCOD_RENDERER_SDL);
+    mapSizeX = 50;
+    mapSizeY = 30;    
+    TCODConsole::initRoot(mapSizeX, mapSizeY, "DotR - Defence of the Roguelike", false, TCOD_RENDERER_SDL);
     TCODConsole::setWindowTitle("DotR - Defence of the Roguelike");
     player = new Creature(25, 15, '@', TCODColor::white);
-    map = new World(50, 30);
+    map = new World(mapSizeX, mapSizeY);
 }
 
 void Game::update(){
@@ -25,7 +27,6 @@ void Game::update(){
 
 void Game::display(){
     TCODConsole::root->clear();
-    
     map->place();
     player->place();
     //ADD display monsters too!
