@@ -1,6 +1,8 @@
 #include <libtcod/libtcod.hpp>
 #include "game.hpp"
 
+
+
 Game::Game()
 {
     mapSizeX = 50;

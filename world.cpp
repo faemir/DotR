@@ -1,17 +1,28 @@
-#include "libtcod/libtcod.hpp"
 #include "world.hpp"
+#include "creature.hpp"
+#include "game.hpp"
+#include "nodeCallBack.hpp"
 
 World::World(int width, int height) : 
     width(width), height(height){
         createTiles(width, height);
-        createWall(5,5);
-        createWall(5,6);
-        createWall(5,7);
-        createWall(5,8);
-        createWall(5,9);
-        createWall(5,10);
-        createWall(5,11);
+//         genRoom(4,4,15,15);
+//         genRoom(11,31,7,6);
+//         genRoom(15,25,10,5);
     }
+    
+void World::genLevel(){
+    level = new TCODBsp(0,0,width,height);
+    level->splitRecursive(NULL,4,5,5,1.5f,1.5f); //no random || 4 recursion || 5 minH || 5 minW || 1.5f rectangles
+    nodeCall = new NodeCallBack(*this);
+    level->traversePostOrder(&nodeCall,NULL);
+}
+
+void World::genRoom(int startX, int startY, int width, int height){
+    for (int i=startX; i<width+startX; i++)
+        for (int j=startY; j<height+startY; j++)
+            tiles[i][j].passable = true;
+}
     
 void World::createTiles(int sizeX, int sizeY){
     tiles.resize(sizeY);
