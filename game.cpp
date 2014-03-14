@@ -1,6 +1,6 @@
 #include <libtcod/libtcod.hpp>
 #include "game.hpp"
-
+#include "world.hpp"
 
 
 Game::Game()

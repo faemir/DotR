@@ -1,10 +1,11 @@
 #include <libtcod/libtcod.hpp>
 #include <vector>
-#include "nodeCallBack.hpp"
 struct tile {
 public:
     bool passable = false;
 };
+
+class NodeCallBack;
 
 class World {
 public:
@@ -24,4 +25,3 @@ public:
     bool wallCheck(int x, int y);
     std::vector<std::vector<tile> > tiles;
 };
-

@@ -1,7 +1,5 @@
 #include <libtcod/libtcod.hpp>
 #include "game.hpp"
-#include "creature.hpp"
-#include "world.hpp"
 
 Game game;
 

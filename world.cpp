@@ -1,5 +1,4 @@
 #include "world.hpp"
-#include "creature.hpp"
 #include "game.hpp"
 #include "nodeCallBack.hpp"
 

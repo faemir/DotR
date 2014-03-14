@@ -1,6 +1,6 @@
 #include "creature.hpp"
-#include "world.hpp"
 
+class World;
 class Game {
 public:
     int width;

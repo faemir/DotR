@@ -1,5 +1,7 @@
 #include <libtcod/libtcod.hpp>
-#include "world.hpp"
+
+class World;
+
 class NodeCallBack : public ITCODBspCallback {
 private:
     World &world;
