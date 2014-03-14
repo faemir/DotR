@@ -14,7 +14,7 @@ void World::genLevel(){
     level = new TCODBsp(0,0,width,height);
     level->splitRecursive(NULL,4,5,5,1.5f,1.5f); //no random || 4 recursion || 5 minH || 5 minW || 1.5f rectangles
     nodeCall = new NodeCallBack(*this);
-    level->traversePostOrder(&nodeCall,NULL);
+    level->traversePostOrder(nodeCall,NULL);
 }
 
 void World::genRoom(int startX, int startY, int width, int height){
